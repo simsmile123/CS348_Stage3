@@ -1,0 +1,10 @@
+runtime: python312
+
+entrypoint: gunicorn -b :$PORT app:app
+
+automatic_scaling:
+  max_instances: 1
+
+env_variables:
+  # Use ephemeral writable storage on App Engine Standard.
+  DB_FILE: /tmp/students.db
